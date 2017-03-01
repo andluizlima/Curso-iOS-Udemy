@@ -23,11 +23,12 @@ class ViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //Número de sessões da tabela da view
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    //Numero de itens que tem dentro de cada sessão
+    //Número de itens que tem dentro de cada sessão
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return signos.count
     }
@@ -42,14 +43,22 @@ class ViewController: UITableViewController {
         return celula
     }
     
+    //Função que é chamada quando a linha é selecionada
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //Deseleciona a linha para que não fique cinza sem nada estar selecionado
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        //Cria um alerta baseado nos vetores criados no topo da classe pegando o índice com o indexPath
         let alertaController = UIAlertController(title: signos[indexPath.row], message: descricao[indexPath.row], preferredStyle: .alert )
         
+        //Cria um botão para o alerta
         let confirmar = UIAlertAction(title: "Acertou rs", style: .default , handler: nil)
         
+        //Adiciona o botão criado ao alerta
         alertaController.addAction(confirmar)
         
+        //Apresenta o alerta
         present(alertaController, animated: true, completion: nil)
     }
 

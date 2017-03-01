@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func gerar(_ sender: Any) {
-        var n = arc4random_uniform(UInt32(frases.count))
+        let n = arc4random_uniform(UInt32(frases.count))
         frase.text = frases[Int(n)]
     }
 

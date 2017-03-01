@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         if(alcool == "" || gasolina == ""){
             return "Preencha todos os campos"
         } else {
+            //Conta baseada em algum artigo da internet. Se tá na internet é porque é verdade.
             if(Double(alcool)!/Double(gasolina)! >= 0.7){
                 return "Melhor utilizar gasolina"
             } else {

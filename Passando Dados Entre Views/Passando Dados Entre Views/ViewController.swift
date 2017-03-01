@@ -22,9 +22,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //Essa é a função que vai modificar os dados da view a qual o usuário está sendo direcionado
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //Aqui a outra view está sendo identificada a partir do identificador da segue estipulado no storyboard
         if(segue.identifier == "enviarDadosDetalhes"){
+            //Criando um objeto para modificar os dados da view identificada
             let viewControllerDestino = segue.destination as! DetalhesController
+            //Modificando os dados, nesse caso, o atributo String "textoRecebido"
             viewControllerDestino.textoRecebido = texto.text
         }
     }

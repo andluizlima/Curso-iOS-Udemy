@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lbm-BA-ahb">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Lista de tarefas-->
+        <scene sceneID="qzM-N5-8jb">
+            <objects>
+                <tableViewController id="9Ir-8c-duk" customClass="ViewController" customModule="Lista_de_Tarefas" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="en7-5T-FZ9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celulaPadrao" id="Gge-jT-jxL">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gge-jT-jxL" id="oEF-hJ-g7N">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9Ir-8c-duk" id="heO-mx-4p7"/>
+                            <outlet property="delegate" destination="9Ir-8c-duk" id="YZI-xn-Pcp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Lista de tarefas" id="ktp-nw-BMi">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tci-pR-Q0z">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="A7U-C6-IAv" kind="show" identifier="criarTarefa" id="qrj-Ve-N5b"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5X6-dR-f4w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="904.79999999999995" y="-7.6461769115442282"/>
+        </scene>
+        <!--Tarefa View Controller-->
+        <scene sceneID="gfi-pd-tlB">
+            <objects>
+                <viewController id="A7U-C6-IAv" customClass="TarefaViewController" customModule="Lista_de_Tarefas" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rqs-4G-rAg"/>
+                        <viewControllerLayoutGuide type="bottom" id="OlJ-6O-ZCM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Ku-MK-TaZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Vb-rt-R9K">
+                                <rect key="frame" x="16" y="132" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Raq-KR-0C4">
+                                <rect key="frame" x="155" y="192" width="65" height="30"/>
+                                <state key="normal" title="Adicionar"/>
+                                <connections>
+                                    <action selector="adicionarTarefa:" destination="A7U-C6-IAv" eventType="touchUpInside" id="V6v-SC-cGh"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nova Tarefa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5h-6G-osi">
+                                <rect key="frame" x="126.5" y="72" width="122.5" height="26.5"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Raq-KR-0C4" firstAttribute="top" secondItem="6Vb-rt-R9K" secondAttribute="bottom" constant="30" id="Eki-Ae-66m"/>
+                            <constraint firstItem="6Vb-rt-R9K" firstAttribute="trailing" secondItem="4Ku-MK-TaZ" secondAttribute="trailingMargin" id="Kwh-mN-wCS"/>
+                            <constraint firstItem="Raq-KR-0C4" firstAttribute="centerX" secondItem="4Ku-MK-TaZ" secondAttribute="centerX" id="Xd9-zQ-XSM"/>
+                            <constraint firstItem="6Vb-rt-R9K" firstAttribute="centerX" secondItem="4Ku-MK-TaZ" secondAttribute="centerX" id="csr-5X-ZoC"/>
+                            <constraint firstItem="s5h-6G-osi" firstAttribute="centerX" secondItem="4Ku-MK-TaZ" secondAttribute="centerX" id="eq7-HO-S3o"/>
+                            <constraint firstItem="s5h-6G-osi" firstAttribute="top" secondItem="rqs-4G-rAg" secondAttribute="bottom" constant="8" id="go0-Rn-oYd"/>
+                            <constraint firstItem="6Vb-rt-R9K" firstAttribute="leading" secondItem="4Ku-MK-TaZ" secondAttribute="leadingMargin" id="kQc-Zc-uFJ"/>
+                            <constraint firstItem="6Vb-rt-R9K" firstAttribute="top" secondItem="s5h-6G-osi" secondAttribute="bottom" constant="33.5" id="tRb-0u-Pgg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tarefaDigitada" destination="6Vb-rt-R9K" id="Uix-J2-sPK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vnM-sG-ngz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1789.5999999999999" y="-8.5457271364317844"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xhj-EJ-Dds">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lbm-BA-ahb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="yuD-KC-Pyd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9Ir-8c-duk" kind="relationship" relationship="rootViewController" id="CpO-AR-3OF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j0t-pU-RYr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-34.399999999999999" y="-7.6461769115442282"/>
+        </scene>
+    </scenes>
+</document>

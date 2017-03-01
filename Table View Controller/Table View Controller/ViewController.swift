@@ -22,6 +22,7 @@ class ViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //Número de sessões que contém na tabela dessa view
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

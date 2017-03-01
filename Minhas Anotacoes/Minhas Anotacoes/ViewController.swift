@@ -16,24 +16,24 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        //Carrega as anotações já salvas na memória de padrões do usuário
         anotacoes = UserDefaults.standard.object(forKey: "notas") as! [String]!
         if(anotacoes == nil){
             anotacoes = []
         }
-        salvos.text = ""
         for nota in anotacoes {
             salvos.text! += nota + "\n"
         }
     }
     
+    //Função para esconder o teclado quando o usuário clicar em algum lugar da tela (que não seja o teclado)
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func salvar(_ sender: Any) {
@@ -41,6 +41,7 @@ class ViewController: UIViewController {
             anotacoes.append(textoDigitado.text!)
             UserDefaults.standard.set(anotacoes, forKey: "notas")
             salvos.text! += textoDigitado.text! + "\n"
+            textoDigitado.text = ""
         }
     }
 }
